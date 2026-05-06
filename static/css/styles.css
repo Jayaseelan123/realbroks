@@ -1145,7 +1145,8 @@ p {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2px;
-  white-space: nowrap;
+  white-space: pre-line;
+  text-align: center;
   box-shadow: 0 10px 24px rgba(15, 118, 85, 0.2);
   opacity: 0;
   transform: translateX(6px);
