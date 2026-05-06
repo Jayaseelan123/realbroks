@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms & Conditions - RealBroks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="512x512" href="../static/images/favicon_updated.png">
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon_updated.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="../static/images/favicon_updated.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/styles.css">
+
+  <style>
+    /* Policy Page Specific Styles */
+    .policy-container {
+      max-width: 900px;
+      margin: 120px auto 80px;
+      padding: 0 24px;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 60px 0;
+      background: linear-gradient(135deg, rgba(25, 166, 108, 0.05) 0%, rgba(16, 68, 89, 0.05) 100%);
+      border-radius: 24px;
+    }
+
+    .policy-header h1 {
+      font-size: 3rem;
+      color: #104459;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .policy-header p {
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .policy-content {
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+      line-height: 1.8;
+      color: #334155;
+    }
+
+    .policy-section {
+      margin-bottom: 40px;
+    }
+
+    .policy-section h2 {
+      font-size: 1.5rem;
+      color: #104459;
+      margin-bottom: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-section h2::before {
+      content: "";
+      width: 4px;
+      height: 24px;
+      background: #19a66c;
+      border-radius: 2px;
+    }
+
+    .policy-section p {
+      margin-bottom: 16px;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .policy-section li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+
+    .policy-section li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #19a66c;
+      font-weight: bold;
+    }
+
+    .contact-info-box {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid #19a66c;
+      margin-top: 20px;
+    }
+
+    /* Navbar adjustment for static pages */
+    .navbar {
+      background: rgba(16, 68, 89, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    .navbar .nav-link {
+      color: #ffffff !important;
+    }
+
+    .lang-toggle-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    @media (max-width: 768px) {
+      .policy-header h1 { font-size: 2.2rem; }
+      .policy-content { padding: 30px 20px; }
+      .policy-container { margin-top: 100px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/">
+          <img src="../static/images/RB-White-Logo.png" alt="RealBroks" style="height: 40px;">
+        </a>
+      </div>
+      <ul class="navbar-nav">
+        <li><a href="/#home" data-lang="nav-home">Home</a></li>
+        <li><a href="/#about" data-lang="nav-about">About Us</a></li>
+        <li><a href="/#services" data-lang="nav-services">Service</a></li>
+        <li><a href="/#team" data-lang="nav-team">Team</a></li>
+        <li style="margin-left: 1rem;">
+          <button id="langToggle" class="lang-toggle-btn" aria-label="Switch Language" title="Switch Language">
+            <span id="currentLang">EN</span>
+            <span class="lang-separator">/</span>
+            <span id="nextLang">த</span>
+          </button>
+        </li>
+        <li style="margin-left: 0.5rem;"><a href="/accounts/login/" class="btn btn-primary"
+            style="font-size: 0.85rem; padding: 0.4rem 1rem;" data-lang="admin-login">Admin Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="policy-container">
+    <div class="policy-header">
+      <h1>Terms & Conditions</h1>
+      <p>Please read these terms carefully before using Realbroks.</p>
+    </div>
+
+    <div class="policy-content">
+      <p class="mb-5">
+        Welcome to Realbroks ("we", "our", "us"). By downloading, accessing, or using the Realbroks mobile application, website, or services (collectively, the "Service"), you agree to be bound by these Terms and Conditions.
+      </p>
+
+      <div class="policy-section">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By using Realbroks, you confirm that you are at least 18 years old and legally capable of entering into contractual agreements.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>2. Description of Service</h2>
+        <p>Realbroks is a real estate property management platform that helps users manage listings, leads, collaboration, and transactions.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. User Responsibilities</h2>
+        <ul>
+          <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+          <li>You agree not to misuse the service, attempt unauthorized access, or upload harmful content.</li>
+          <li>You are responsible for the accuracy of property and contact information you upload.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. Subscription & Payments</h2>
+        <p>Certain features may require paid plans or subscriptions. All payments are non-refundable unless required by law.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. Data & Content Ownership</h2>
+        <p>You retain ownership of the content you upload. By providing content, you grant Realbroks a license to store and display it as needed for service functionality.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>6. Limitation of Liability</h2>
+        <p>Realbroks is provided "as is" without warranty. We are not liable for losses related to system failure, missed deals, or inaccurate information entered by users.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>7. Termination</h2>
+        <p>We may suspend or terminate accounts that violate our terms.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>8. Changes to Terms</h2>
+        <p>We may update these Terms occasionally. Continued use after changes means acceptance of the new Terms.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>9. Contact</h2>
+        <p>If you have questions about these Terms, contact us at:</p>
+        <div class="contact-info-box">
+          <strong>Email:</strong> <a href="mailto:aspirentech@gmail.com" style="color: #19a66c; text-decoration: none;">aspirentech@gmail.com</a><br>
+          <strong>Phone:</strong> <a href="tel:+919566004966" style="color: #19a66c; text-decoration: none;">+91 95660 04966</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer id="main-footer" class="realbroks-footer">
+    <div class="footer-content">
+      <!-- Brand Column -->
+      <div class="footer-column brand-column">
+        <img src="../static/images/RB-White-Logo.png" alt="RealBroks Logo" class="footer-logo">
+      </div>
+
+      <!-- Contact Information Column -->
+      <div class="footer-column contact-column">
+        <h4 class="footer-section-label" data-lang="footer-contact">CONTACT INFORMATION:</h4>
+        <div class="contact-detail">
+          <a href="tel:+918870500106" class="contact-link">+91 95660 04966</a>
+        </div>
+        <div class="contact-detail">
+          <a href="mailto:aspirentech@gmail.com" class="contact-link">aspirentech@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Social Icons Column -->
+      <div class="footer-column social-column">
+        <div class="social-icons">
+          <a href="https://www.instagram.com/aspiren_tech/" target="_blank" rel="noopener noreferrer"
+            class="social-icon social-icon--instagram" aria-label="Follow RealBroks on Instagram">
+            <img src="../static/images/instagram.png" alt="Instagram">
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook"
+            aria-label="Follow RealBroks on Facebook">
+            <img src="../static/images/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.linkedin.com/company/aspirentech/posts/?feedView=all" target="_blank"
+            rel="noopener noreferrer" class="social-icon social-icon--linkedin"
+            aria-label="Follow RealBroks on LinkedIn">
+            <img src="../static/images/linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo Call Column -->
+      <div class="footer-column demo-column">
+        <h4 class="footer-section-label" data-lang="footer-demo">REQUEST A FREE DEMO:</h4>
+        <p class="footer-demo-text" data-lang="footer-demo-text">Experience RealBroks in action today.</p>
+        <a href="tel:+918870500106" class="btn btn-primary demo-call-btn" data-lang="demo-button">
+          Call
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Realbroks <a href="https://www.aspirentech.com/" target="_blank"
+          rel="noopener noreferrer" class="tecstellar-link" data-lang="powered-by">Powered by Aspirentech Business
+          Solution</a>. <span data-lang="rights">All rights reserved.</span></p>
+
+      <div class="footer-links">
+        <a href="/privacy/" class="footer-link" data-lang="privacy">Privacy Policy</a>
+        <span class="footer-link-separator">•</span>
+        <a href="/terms-conditions/" class="footer-link" data-lang="terms">Terms and Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        'nav-home': 'Home',
+        'nav-about': 'About Us',
+        'nav-services': 'Service',
+        'nav-team': 'Team',
+        'admin-login': 'Admin Login',
+        'footer-contact': 'CONTACT US',
+        'footer-demo': 'GET STARTED',
+        'demo-button': 'Request Free Demo',
+        'powered-by': 'Powered by Aspirentech Business Solution',
+        'rights': 'All rights reserved.',
+        'privacy': 'Privacy Policy',
+        'terms': 'Terms and Conditions'
+      },
+      ta: {
+        'nav-home': 'முகப்பு',
+        'nav-about': 'எங்களை பற்றி',
+        'nav-services': 'சேவை',
+        'nav-team': 'குழு',
+        'admin-login': 'நிர்வாக உள்நுழைவு',
+        'footer-contact': 'எங்களைத் தொடர்பு கொள்ளுங்கள்',
+        'footer-demo': 'தொடங்குங்கள்',
+        'demo-button': 'இலவச டெமோவைக் கோருங்கள்',
+        'powered-by': 'Aspirentech Business Solution-ஆல் இயக்கப்படுகிறது',
+        'rights': 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
+        'privacy': 'தனியுரிமைக் கொள்கை',
+        'terms': 'விதிமுறைகள் மற்றும் நிபந்தனைகள்'
+      }
+    };
+
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+      document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      const currentLangSpan = document.getElementById('currentLang');
+      const nextLangSpan = document.getElementById('nextLang');
+      if (currentLangSpan && nextLangSpan) {
+        if (lang === 'en') {
+          currentLangSpan.textContent = 'EN';
+          nextLangSpan.textContent = 'த';
+        } else {
+          currentLangSpan.textContent = 'த';
+          nextLangSpan.textContent = 'EN';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const langToggle = document.getElementById('langToggle');
+      if (langToggle) {
+        langToggle.addEventListener('click', function () {
+          const newLang = currentLang === 'en' ? 'ta' : 'en';
+          updateLanguage(newLang);
+        });
+      }
+      updateLanguage(currentLang);
+    });
+  </script>
+</body>
+
+</html>

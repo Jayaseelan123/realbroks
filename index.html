@@ -1,0 +1,1686 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RealBroks</title>
+  <!-- <link rel="stylesheet" href="/static/css/index.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;800&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="512x512" href="static/images/favicon_updated.png">
+  <link rel="shortcut icon" type="image/png" href="static/images/favicon_updated.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="static/images/favicon_updated.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+  <!-- Google Analytics 4: ID loaded via script to keep it out of page source -->
+  <script>
+    (function () {
+      var u = '/config/ga/';
+      fetch(u).then(function (r) { return r.json(); }).then(function (d) {
+        if (d.m) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', d.m);
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + d.m;
+          document.head.appendChild(s);
+        }
+      }).catch(function () { });
+    })();
+  </script>
+
+</head>
+
+<style>
+  /* Language Toggle Button */
+  .lang-toggle-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-family);
+  }
+
+  .lang-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .lang-separator {
+    opacity: 0.6;
+    margin: 0 0.1rem;
+  }
+
+  .navbar.scrolled .lang-toggle-btn {
+    background: rgba(16, 68, 89, 0.1);
+    border-color: rgba(16, 68, 89, 0.2);
+    color: var(--text-primary);
+  }
+
+  .navbar.scrolled .lang-toggle-btn:hover {
+    background: rgba(16, 68, 89, 0.2);
+    border-color: rgba(16, 68, 89, 0.3);
+  }
+
+  .fade-text {
+    transition: opacity 0.4s ease;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .phone-animate {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  /* 3D Diamond Card */
+  .hero-section-3d {
+    perspective: 1200px;
+  }
+
+  .hero-card {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+  }
+
+  .hero-brand__content {
+    position: relative;
+    min-height: 240px;
+  }
+
+  .hero-brand__text {
+    min-height: 140px;
+  }
+
+  .hero-store-placeholders {
+    position: absolute;
+    left: 0;
+    bottom: -70px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .store-placeholder {
+    width: 160px;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .store-placeholder:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Navigation Hover Effects */
+  .navbar-nav li a {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav li a:not(.btn):hover {
+    color: #4ade80 !important;
+  }
+
+  .navbar-nav li a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .navbar-nav li a:not(.btn):hover::after {
+    width: 80%;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #16a34a, #22c55e) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    transition: all 0.3s ease !important;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #22c55e, #4ade80) !important;
+    box-shadow: 0 6px 25px rgba(34, 197, 94, 0.5) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .cta-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .cta-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .cta-reveal.is-visible .cta-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-reveal.is-visible .cta-item:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+
+  .cta-reveal.is-visible .cta-item:nth-child(2) {
+    transition-delay: 0.12s;
+  }
+
+  .cta-reveal.is-visible .cta-item:nth-child(3) {
+    transition-delay: 0.18s;
+  }
+
+  .cta-reveal.is-visible .cta-item:nth-child(4) {
+    transition-delay: 0.24s;
+  }
+
+  .cta-reveal.is-visible .cta-item:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+
+  .cta-phone {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .cta-phone.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const card = document.querySelector('.hero-card');
+    if (!card) return;
+
+    const heroSection = document.querySelector('.hero-brand');
+
+    heroSection.addEventListener('mousemove', function (e) {
+      const rect = card.getBoundingClientRect();
+      const cardCenterX = rect.left + rect.width / 2;
+      const cardCenterY = rect.top + rect.height / 2;
+
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      // Calculate tilt based on mouse position (-8 to 8 degrees)
+      const tiltX = ((mouseY - cardCenterY) / (rect.height / 2)) * 8;
+      const tiltY = ((mouseX - cardCenterX) / (rect.width / 2)) * -8;
+
+      // Apply 3D transform while maintaining -45deg rotation
+      card.style.transform = `rotate(-45deg) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.01)`;
+    });
+
+    heroSection.addEventListener('mouseleave', function () {
+      // Reset to original diamond position
+      card.style.transform = 'rotate(-45deg) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const heroSection = document.querySelector('.hero-brand');
+    const heroAsset = document.querySelector('.hero-asset-right');
+    if (!heroSection || !heroAsset) return;
+
+    let baseX = 0;
+    let baseY = 0;
+    const baseTransform = heroAsset.style.transform;
+    const match = /translate\(\s*(-?\d+\.?\d*)px,\s*(-?\d+\.?\d*)px\s*\)/.exec(baseTransform);
+    if (match) {
+      baseX = parseFloat(match[1]);
+      baseY = parseFloat(match[2]);
+    }
+
+    heroSection.addEventListener('mousemove', function (e) {
+      const rect = heroSection.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const dx = (e.clientX - centerX) / (rect.width / 2);
+      const dy = (e.clientY - centerY) / (rect.height / 2);
+
+      const moveX = Math.max(-1, Math.min(1, dx)) * 10;
+      const moveY = Math.max(-1, Math.min(1, dy)) * 10;
+      const shadowX = Math.max(-1, Math.min(1, dx)) * -12;
+      const shadowY = Math.max(-1, Math.min(1, dy)) * -12;
+
+      heroAsset.style.transform = `translate3d(${baseX + moveX}px, ${baseY + moveY}px, 0)`;
+      heroAsset.style.filter = `drop-shadow(${shadowX}px ${shadowY}px 40px rgba(0, 0, 0, 0.28))`;
+    });
+
+    heroSection.addEventListener('mouseleave', function () {
+      heroAsset.style.transform = `translate3d(${baseX}px, ${baseY}px, 0)`;
+      heroAsset.style.filter = 'drop-shadow(0 22px 40px rgba(0, 0, 0, 0.25))';
+    });
+  });
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/">
+          <img src="static/images/RB-White-Logo.png" alt="RealBroks">
+        </a>
+      </div>
+      <ul class="navbar-nav">
+        <li><a href="#home" data-lang="nav-home">Home</a></li>
+        <li><a href="#about" data-lang="nav-about">About Us</a></li>
+        <li><a href="#services" data-lang="nav-services">Service</a></li>
+        <li><a href="#team" data-lang="nav-team">Team</a></li>
+        <li style="margin-left: 1rem;">
+          <button id="langToggle" class="lang-toggle-btn" aria-label="Switch Language" title="Switch Language">
+            <span id="currentLang">EN</span>
+            <span class="lang-separator">/</span>
+            <span id="nextLang">த</span>
+          </button>
+        </li>
+        <li style="margin-left: 0.5rem;"><a href="/accounts/login/" class="btn btn-primary"
+            style="font-size: 0.85rem; padding: 0.4rem 1rem;" data-lang="admin-login">Admin Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero hero-brand">
+    <div style="position: relative; width: 100%; min-height: 360px; margin-bottom: 2rem;">
+      <img src="static/images/Asset%202.png" alt="RealBroks Asset" class="hero-asset-right"
+        style=" max-width: 60vw; height: auto; transform: translate(-20px, -28px);">
+
+      <div class="hero-brand__content" style="margin-left: 1.5in;">
+        <div class="hero-brand__text">
+          <h1 id="heroHeading" class="fade-text" data-lang="hero-heading-1">Built for Brokers</h1>
+          <p id="heroDescription" class="fade-text" data-lang="hero-desc-1">All your properties, contacts, and deals in
+            one place. Manage your entire real estate business with ease and grow faster.</p>
+        </div>
+
+        <div class="hero-store-placeholders" aria-label="App store placeholders">
+          <a href="#" onclick="alert('Coming Soon'); return false;" style="text-decoration: none;">
+            <img class="store-placeholder" src="static/images/appstore-placeholder.svg" alt="App Store placeholder">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.tecstellar.RealBroks&pcampaignid=web_share&pli=1"
+            target="_blank" style="text-decoration: none;">
+            <img class="store-placeholder" src="static/images/playstore-placeholder.svg" alt="Google Play placeholder">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Parallax effect removed
+  </script>
+
+  <!-- About Section -->
+  <section id="about" class="section about-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-lang="about-title">What is RealBroks?</h2>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);" data-lang="about-desc">
+          RealBroks is a comprehensive real estate management platform built for brokers, agents, and small real estate
+          businesses in India. Our goal is simple: reduce manual work, improve transparency, and help you close deals
+          faster using powerful yet easy-to-use SaaS tools.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section id="languages" class="languages-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-lang="lang-title">RealBroks App Supports Languages</h2>
+        <p class="section-description" data-lang="lang-desc">Close deals faster with clearer communication. Manage
+          clients, negotiations, and walkthroughs in the language they trust.</p>
+      </div>
+      <div class="languages-grid">
+        <div class="language-pill" data-language="Tamil">
+          <span class="language-name">Tamil</span>
+          <span class="language-label">தமிழ்</span>
+        </div>
+        <div class="language-pill" data-language="Hindi">
+          <span class="language-name">Hindi</span>
+          <span class="language-label">हिन्दी</span>
+        </div>
+        <div class="language-pill" data-language="Telugu">
+          <span class="language-name">Telugu</span>
+          <span class="language-label">తెలుగు</span>
+        </div>
+        <div class="language-pill" data-language="Kannada">
+          <span class="language-name">Kannada</span>
+          <span class="language-label">ಕನ್ನಡ</span>
+        </div>
+        <div class="language-pill" data-language="Malayalam">
+          <span class="language-name">Malayalam</span>
+          <span class="language-label">മലയാളம்</span>
+        </div>
+        <div class="language-pill" data-language="English">
+          <span class="language-name">English</span>
+          <span class="language-label">English</span>
+        </div>
+        <!-- Spacer for visual break -->
+        <div class="language-spacer"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="language-pill" data-language="Tamil">
+          <span class="language-name">Tamil</span>
+          <span class="language-label">தமிழ்</span>
+        </div>
+        <div class="language-pill" data-language="Hindi">
+          <span class="language-name">Hindi</span>
+          <span class="language-label">हिन्दी</span>
+        </div>
+        <div class="language-pill" data-language="Telugu">
+          <span class="language-name">Telugu</span>
+          <span class="language-label">తెలుగు</span>
+        </div>
+        <div class="language-pill" data-language="Kannada">
+          <span class="language-name">Kannada</span>
+          <span class="language-label">ಕನ್ನಡ</span>
+        </div>
+        <div class="language-pill" data-language="Malayalam">
+          <span class="language-name">Malayalam</span>
+          <span class="language-label">മലയാളம்</span>
+        </div>
+        <div class="language-pill" data-language="English">
+          <span class="language-name">English</span>
+          <span class="language-label">English</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section - Start Now Free -->
+  <section id="menu" style="background: #f0fdf8; padding: 40px 0; position: relative; overflow: hidden;">
+    <div class="cta-corner-actions" aria-label="Support actions">
+      <a href="https://wa.me/918870500106" target="_blank" rel="noopener noreferrer" class="cta-action"
+        aria-label="Chat on WhatsApp" data-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12.04 2C6.5 2 2 6.29 2 11.62c0 1.95.6 3.76 1.64 5.3L2.2 22l5.25-1.37c1.47.8 3.14 1.24 4.59 1.24 5.54 0 10.04-4.29 10.04-9.62C22.08 6.29 17.58 2 12.04 2zm0 17.96c-1.32 0-2.85-.42-4.11-1.21l-.3-.19-3.11.82.83-2.97-.2-.31c-.93-1.35-1.46-2.92-1.46-4.48 0-4.42 3.79-8.02 8.35-8.02 4.6 0 8.35 3.6 8.35 8.02 0 4.42-3.75 8.34-8.35 8.34z" />
+          <path
+            d="M16.67 13.64c-.24-.11-1.43-.66-1.65-.74-.22-.08-.38-.11-.54.11-.16.22-.62.74-.76.9-.14.16-.28.18-.52.07-.24-.11-1-.36-1.9-1.16-.7-.6-1.17-1.33-1.31-1.56-.14-.22-.02-.34.1-.45.11-.1.24-.26.36-.39.12-.13.16-.22.24-.37.08-.15.04-.28-.02-.39-.06-.11-.54-1.26-.74-1.72-.2-.46-.4-.4-.54-.41h-.47c-.16 0-.42.06-.64.28-.22.22-.84.8-.84 1.94 0 1.13.86 2.23.98 2.39.12.16 1.69 2.57 4.1 3.6.57.24 1.01.38 1.35.49.57.18 1.08.15 1.49.09.45-.06 1.43-.57 1.63-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.27z" />
+        </svg>
+      </a>
+      <a href="mailto:Realbroks@tecstellar.com" class="cta-action" aria-label="Email support" data-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2 8 5 8-5" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="tel:+918870500106" class="cta-action" aria-label="Call support" data-label="Call">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 2c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.1 2.1z" />
+        </svg>
+      </a>
+    </div>
+    <!-- Wave pattern top left -->
+    <svg
+      style="position: absolute; left: -100px; top: -50px; width: 300px; height: 300px; opacity: 0.26; pointer-events: none;"
+      viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 Q50,50 100,100 T200,100" stroke="rgba(25, 166, 108, 0.45)" stroke-width="2" fill="none" />
+      <path d="M0,120 Q50,70 100,120 T200,120" stroke="rgba(25, 166, 108, 0.3)" stroke-width="2" fill="none" />
+      <path d="M0,140 Q50,90 100,140 T200,140" stroke="rgba(25, 166, 108, 0.25)" stroke-width="2" fill="none" />
+    </svg>
+
+    <!-- Circle patterns -->
+    <div
+      style="position: absolute; left: 10%; top: 10%; width: 80px; height: 80px; border: 2px solid rgba(25, 166, 108, 0.32); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; left: 8%; top: 12%; width: 60px; height: 60px; border: 2px solid rgba(25, 166, 108, 0.26); border-radius: 50%; pointer-events: none;">
+    </div>
+
+    <!-- Subtle abstract shapes -->
+    <div
+      style="position: absolute; left: -50px; top: 20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(25, 166, 108, 0.14) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+
+    <!-- Wave pattern bottom right -->
+    <svg
+      style="position: absolute; right: -100px; bottom: -50px; width: 350px; height: 350px; opacity: 0.22; pointer-events: none;"
+      viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 Q50,50 100,100 T200,100" stroke="rgba(25, 166, 108, 0.3)" stroke-width="2" fill="none" />
+      <path d="M0,120 Q50,70 100,120 T200,120" stroke="rgba(25, 166, 108, 0.2)" stroke-width="2" fill="none" />
+      <path d="M0,140 Q50,90 100,140 T200,140" stroke="rgba(25, 166, 108, 0.15)" stroke-width="2" fill="none" />
+    </svg>
+
+    <!-- Circle patterns right -->
+    <div
+      style="position: absolute; right: 15%; bottom: 15%; width: 100px; height: 100px; border: 2px solid rgba(25, 166, 108, 0.28); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; right: 12%; bottom: 18%; width: 70px; height: 70px; border: 2px solid rgba(25, 166, 108, 0.22); border-radius: 50%; pointer-events: none;">
+    </div>
+
+    <div
+      style="position: absolute; right: -100px; bottom: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(25, 166, 108, 0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <div
+        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; margin: 0 auto; max-width: 1000px;">
+        <!-- Content Box -->
+        <div class="cta-reveal"
+          style="background: #ffffff; padding: 40px; border-radius: 24px; box-shadow: 0 8px 32px rgba(25, 166, 108, 0.15); height: 100%;">
+          <h2 class="cta-item"
+            style="font-size: 1.75rem; color: #19a66c; margin: 0 0 0.15rem 0; font-weight: 800; line-height: 1.1;"
+            data-lang="cta-start">Start Now,</h2>
+          <h2 class="cta-item" style="font-size: 1.75rem; color: #19a66c; margin: 0 0 0.4rem 0; font-weight: 700;"
+            data-lang="cta-free">It's Absolutely Free</h2>
+          <div class="cta-item"
+            style="width: 50px; height: 4px; background: linear-gradient(90deg, #19a66c 0%, #e8f5f0 100%); margin-bottom: 1rem; border-radius: 2px;">
+          </div>
+          <p class="cta-item"
+            style="color: #374151; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;"
+            data-lang="cta-desc">
+            Manage properties, clients, and follow-ups from your phone. Stay organized, Add multiple properties, and
+            close deals faster.
+          </p>
+          <div class="cta-item" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <span style="color: #19a66c; font-size: 0.9rem; font-weight: 600;" data-lang="download-app">Download
+              App:</span>
+            <a href="#" onclick="alert('Coming Soon'); return false;"
+              style="text-decoration: none; display: inline-block; cursor: pointer; transition: transform 0.2s;">
+              <img src="static/images/appstore.svg" alt="App Store" style="height: 90px; width: auto;">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.tecstellar.RealBroks&pcampaignid=web_share"
+              target="_blank"
+              style="text-decoration: none; display: inline-block; cursor: pointer; transition: transform 0.2s;">
+              <img src="static/images/playstore.svg" alt="Play Store" style="height: 90px; width: auto;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone Image -->
+        <div class="cta-reveal"
+          style="text-align: center; position: relative; perspective: 1000px; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <div
+            style="position: absolute; inset: -20px; background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 60%); border-radius: 50%; pointer-events: none;">
+          </div>
+          <img id="phoneImage" class="cta-phone" src="static/images/phone%20mock%203.png" alt="RealBroks App"
+            style="max-width: 100%; height: auto; border-radius: 28px; filter: drop-shadow(0 30px 80px rgba(25, 166, 108, 0.35)); position: relative; z-index: 2; transform: perspective(1200px) rotateY(-15deg) rotateX(5deg); transform-style: preserve-3d;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="services" class="section" style="padding: 30px 0;">
+    <style>
+      #services .card {
+        padding: 22px !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.58)) !important;
+        box-shadow: 0 18px 45px rgba(15, 118, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #services .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 55%);
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      #services .card h3 {
+        margin: 10px 0 12px 0 !important;
+        font-size: 1.1rem !important;
+        color: #0f172a;
+      }
+
+      #services .card-icon {
+        margin-bottom: 10px !important;
+        display: flex;
+        align-items: center;
+      }
+
+      #services .card-icon__badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, rgba(25, 166, 108, 0.22), rgba(25, 166, 108, 0.08));
+        box-shadow: inset 0 0 0 1px rgba(25, 166, 108, 0.25), 0 8px 16px rgba(15, 118, 110, 0.18);
+        color: #0f766e;
+      }
+
+      #services .card-icon__badge svg {
+        width: 22px;
+        height: 22px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      #services .feature-list {
+        margin: 0 !important;
+        color: #334155;
+      }
+
+      #services .feature-list li {
+        padding: 4px 0 4px 1.6rem !important;
+        font-size: 0.9rem !important;
+        line-height: 1.35 !important;
+      }
+
+      #services .card:nth-child(1) {
+        background: linear-gradient(145deg, rgba(224, 247, 244, 0.85), rgba(255, 255, 255, 0.55)) !important;
+      }
+
+      #services .card:nth-child(2) {
+        background: linear-gradient(145deg, rgba(255, 244, 224, 0.85), rgba(255, 255, 255, 0.55)) !important;
+      }
+
+      #services .card:nth-child(3) {
+        background: linear-gradient(145deg, rgba(240, 230, 255, 0.85), rgba(255, 255, 255, 0.55)) !important;
+      }
+
+      #services .card:nth-child(4) {
+        background: linear-gradient(145deg, rgba(232, 240, 255, 0.85), rgba(255, 255, 255, 0.55)) !important;
+      }
+
+      #services .card:nth-child(2) .card-icon__badge {
+        color: #b45309;
+        background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.08));
+        box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.25), 0 8px 16px rgba(180, 83, 9, 0.18);
+      }
+
+      #services .card:nth-child(3) .card-icon__badge {
+        color: #6d28d9;
+        background: linear-gradient(145deg, rgba(109, 40, 217, 0.22), rgba(109, 40, 217, 0.08));
+        box-shadow: inset 0 0 0 1px rgba(109, 40, 217, 0.25), 0 8px 16px rgba(76, 29, 149, 0.18);
+      }
+
+      #services .card:nth-child(4) .card-icon__badge {
+        color: #1d4ed8;
+        background: linear-gradient(145deg, rgba(29, 78, 216, 0.22), rgba(29, 78, 216, 0.08));
+        box-shadow: inset 0 0 0 1px rgba(29, 78, 216, 0.25), 0 8px 16px rgba(30, 64, 175, 0.18);
+      }
+    </style>
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-label" data-lang="features-label">Features</span>
+        <h2 class="section-title" style="margin-bottom: 5px;" data-lang="features-title">Everything You Need to Manage
+          Your Real Estate Business</h2>
+        <p class="section-description" style="margin-bottom: 0;" data-lang="features-desc">Powerful tools designed
+          specifically for real estate brokers and agents</p>
+      </div>
+      <div class="card-grid" style="gap: 15px;">
+        <div class="card">
+          <div class="card-icon">
+            <span class="card-icon__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="6" y="4" width="12" height="16" rx="2" />
+                <path d="M9 4.5h6" />
+                <path d="M9 10h6" />
+                <path d="M9 14h6" />
+              </svg>
+            </span>
+          </div>
+          <h3 data-lang="feature1-title">Smart Property Listings</h3>
+          <ul class="feature-list">
+            <li data-lang="feature1-point1">Add, edit, and share property details instantly</li>
+            <li data-lang="feature1-point2">Auto-calculate cent to sqft conversions</li>
+            <li data-lang="feature1-point3">Tag GPS location and upload photos on the go</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <span class="card-icon__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+            </span>
+          </div>
+          <h3 data-lang="feature2-title">Secure Transactions</h3>
+          <ul class="feature-list">
+            <li data-lang="feature2-point1">Mark properties as Sold / Archived / Deleted</li>
+            <li data-lang="feature2-point2">Track commissions (Pending vs. Received)</li>
+            <li data-lang="feature2-point3">Keep all your deals transparent & organized</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <span class="card-icon__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Z" />
+                <path
+                  d="M19 12a7.2 7.2 0 0 0-.07-1l2.02-1.56-2-3.46-2.42.98a7.3 7.3 0 0 0-1.73-1L14.5 3h-4l-.3 2.96a7.3 7.3 0 0 0-1.73 1l-2.42-.98-2 3.46L6.07 11a7.2 7.2 0 0 0 0 2l-2.02 1.56 2 3.46 2.42-.98a7.3 7.3 0 0 0 1.73 1L10.5 21h4l.3-2.96a7.3 7.3 0 0 0 1.73-1l2.42.98 2-3.46L18.93 13c.05-.33.07-.66.07-1Z" />
+              </svg>
+            </span>
+          </div>
+          <h3 data-lang="feature3-title">Built for Brokers, Not Corporates</h3>
+          <ul class="feature-list">
+            <li data-lang="feature3-point1">Easy to use on mobile</li>
+            <li data-lang="feature3-point2">No clutter, no steep learning curve</li>
+            <li data-lang="feature3-point3">Works even for single agents and small teams</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <span class="card-icon__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="9" r="3" />
+                <circle cx="16" cy="10" r="2.5" />
+                <path d="M4.5 19a4.5 4.5 0 0 1 9 0" />
+                <path d="M13.5 19a3.5 3.5 0 0 1 7 0" />
+              </svg>
+            </span>
+          </div>
+          <h3 data-lang="feature4-title">Client & Buyer Management</h3>
+          <ul class="feature-list">
+            <li data-lang="feature4-point1">Store and manage buyer preferences and budgets</li>
+            <li data-lang="feature4-point2">Track follow-ups and interaction history</li>
+            <li data-lang="feature4-point3">Build your client database automatically</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-lang="how-label">How It Works</span>
+        <h2 class="section-title" data-lang="how-title">Simple Process, Maximum Results</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3 data-lang="how-step1-title">1. Add Your Properties</h3>
+          <p data-lang="how-step1-desc">Upload details, photos, and location in seconds. Our intuitive interface makes
+            property management effortless.</p>
+        </div>
+        <div class="card">
+          <h3 data-lang="how-step2-title">2. Manage Buyers & Contacts</h3>
+          <p data-lang="how-step2-desc">Store buyer preferences, budgets, and call history. Keep all your client
+            information organized in one place.</p>
+        </div>
+        <div class="card">
+          <h3 data-lang="how-step3-title">3. Track Sales & Commissions</h3>
+          <p data-lang="how-step3-desc">Stay on top of every rupee earned. Monitor your deals from start to finish with
+            complete transparency.</p>
+        </div>
+        <div class="card">
+          <h3 data-lang="how-step4-title">4. Smart Auto-Match & Filters</h3>
+          <p data-lang="how-step4-desc">Automatically filter and match properties with buyer preferences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Partners Section -->
+  <section class="partners-section">
+    <div class="container">
+      <!-- Premium Header -->
+      <div class="partners-content-wrapper">
+        <!-- Left: Content Section -->
+        <div class="partners-content">
+          <div class="section-header">
+            <span class="section-label" data-lang="partners-label">TRUSTED TECHNOLOGY</span>
+            <h2 class="section-title" data-lang="partners-title">Powerful Integrations & Partners</h2>
+            <p class="section-description" data-lang="partners-desc">Powerful integrations that make listings faster to
+              publish, easier to share, and simple to transact</p>
+          </div>
+        </div>
+
+        <!-- Right: Animation Section -->
+        <div class="partners-animation">
+          <!-- Vertical Scrolling Logos -->
+          <div class="vertical-scroll-container">
+            <div class="scroll-track">
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">TECHNOLOGY PARTNER</span>
+                  <img src="static/images/logo-goinauto.png" alt="GoInAuto" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">CLOUD PARTNER</span>
+                  <img src="static/images/logo-azure.png" alt="Azure" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">HOSTING PARTNER</span>
+                  <img src="static/images/logo-firebase.png" alt="Firebase" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">PAYMENT PARTNER</span>
+                  <img src="static/images/logo-phonepe.png" alt="PhonePe" class="partner-logo">
+                </div>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">TECHNOLOGY PARTNER</span>
+                  <img src="static/images/logo-goinauto.png" alt="GoInAuto" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">CLOUD PARTNER</span>
+                  <img src="static/images/logo-azure.png" alt="Azure" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">HOSTING PARTNER</span>
+                  <img src="static/images/logo-firebase.png" alt="Firebase" class="partner-logo">
+                </div>
+              </div>
+              <div class="partner-item">
+                <div class="partner-content">
+                  <span class="partner-category">PAYMENT PARTNER</span>
+                  <img src="static/images/logo-phonepe.png" alt="PhonePe" class="partner-logo">
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            .vertical-scroll-container {
+              width: 200px;
+              height: 400px;
+              overflow: hidden;
+              position: relative;
+              margin: 0 auto;
+            }
+
+            .scroll-track {
+              display: flex;
+              flex-direction: column;
+              animation: scrollVertical 15s linear infinite;
+            }
+
+            .partner-item {
+              padding: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 120px;
+            }
+
+            .partner-content {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .partner-category {
+              font-size: 0.7rem;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+              color: rgba(255, 255, 255, 0.7);
+              text-align: center;
+            }
+
+            .partner-logo {
+              max-width: 120px;
+              max-height: 60px;
+              object-fit: contain;
+              opacity: 0.9;
+              transition: all 0.3s ease;
+            }
+
+            .partner-logo:hover {
+              opacity: 1;
+              transform: scale(1.1);
+            }
+
+            @keyframes scrollVertical {
+              0% {
+                transform: translateY(0);
+              }
+
+              100% {
+                transform: translateY(-50%);
+              }
+            }
+
+            .vertical-scroll-container:hover .scroll-track {
+              animation-play-state: paused;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="section"
+    style="background: linear-gradient(135deg, #eef2ff 0%, #ecfeff 100%); padding: 20px 20px; min-height: auto;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-lang="team-title">Team</h2>
+      </div>
+
+      <!-- Two Column Layout: Leadership (Left), Mission & Vision (Right) -->
+      <div
+        style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; align-items: stretch; max-width: 1200px; margin: 0 auto; width: 100%;">
+
+        <!-- Left Column: Leadership Card -->
+        <div class="team-card"
+          style="background: #ffffff; padding: 20px 20px; border-radius: 16px; border: 1px solid rgba(25, 166, 108, 0.08); box-shadow: 0 8px 24px rgba(25, 166, 108, 0.12);">
+
+          <!-- Name -->
+          <h3 style="font-size: 1.3rem; color: #19a66c; margin: 0 0 0.02rem 0; font-weight: 700; line-height: 1.1;"
+            data-lang="team-name">Sundar</h3>
+
+          <!-- Title -->
+          <p style="font-size: 0.9rem; color: #6b7280; margin: 0 0 0.3rem 0; font-weight: 500;"
+            data-lang="team-title-text">Founder, Aspirentech Business Solution</p>
+
+          <!-- Value Statement -->
+          <p style="font-size: 0.85rem; color: #16a34a; margin: 0 0 0.6rem 0; font-weight: 600; letter-spacing: 0.2px; text-transform: uppercase;"
+            data-lang="team-value">Transforming Real Estate Through Intelligent SaaS Solutions</p>
+
+          <!-- Bio -->
+          <p style="font-size: 0.9rem; line-height: 1.4; color: #374151; margin: 0 0 0.7rem 0;" data-lang="team-bio">
+            Sundar, the visionary founder of Aspirentech Business Solution, is dedicated to investing in SaaS for a
+            brighter
+            future. He strives to transform real estate and other traditional industries by harnessing intelligent,
+            user-friendly software solutions.
+          </p>
+
+          <!-- Leadership Vision -->
+          <div style="border-left: 4px solid #19a66c; padding-left: 14px; margin-bottom: 0; text-align: left;">
+            <h4
+              style="color: #19a66c; font-size: 0.8rem; font-weight: 600; margin: 0 0 0.2rem 0; text-transform: uppercase; letter-spacing: 0.4px;"
+              data-lang="team-vision-label">Leadership Vision</h4>
+            <p style="font-size: 0.9rem; line-height: 1.3; color: #374151; margin: 0; font-style: italic;">
+              "Our rebranding marks a new era—one where technology doesn't just solve problems but creates
+              opportunities."
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Mission & Vision (Stacked) -->
+        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+
+          <!-- Our Mission -->
+          <div class="team-card"
+            style="background: #ffffff; padding: 18px 18px; border-radius: 16px; border: 1px solid rgba(25, 166, 108, 0.08); box-shadow: 0 8px 24px rgba(25, 166, 108, 0.12); display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1rem; color: #19a66c; margin: 0 0 0.4rem 0; font-weight: 700; line-height: 1.2;"
+              data-lang="mission-title">Our Mission</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5; color: #374151; margin: 0;" data-lang="mission-text">To
+              empower brokers, small businesses, and teams with simple yet powerful SaaS tools that reduce manual effort
+              and improve transparency.</p>
+          </div>
+
+          <!-- Our Vision -->
+          <div class="team-card"
+            style="background: #ffffff; padding: 18px 18px; border-radius: 16px; border: 1px solid rgba(25, 166, 108, 0.08); box-shadow: 0 8px 24px rgba(25, 166, 108, 0.12); display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1rem; color: #19a66c; margin: 0 0 0.4rem 0; font-weight: 700; line-height: 1.2;"
+              data-lang="vision-title">Our Vision</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5; color: #374151; margin: 0;">Build products that scale
+              globally, but remain people-friendly and accessible for individuals and smaller organizations — ensuring
+              technology helps everyone grow, not just corporates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Styles -->
+    <style>
+      #team .section-header {
+        margin-bottom: 18px;
+      }
+
+      #team .team-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      }
+
+      #team .team-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(25, 166, 108, 0.18);
+      }
+
+      @media (max-width: 1024px) {
+        #team>div>div:last-child {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #team .container {
+          padding: 0 15px;
+        }
+
+        #team .section-header {
+          margin-bottom: 30px;
+        }
+
+        #team .section-header h2 {
+          font-size: 1.75rem;
+        }
+
+        #team .section-header .section-label {
+          font-size: 0.75rem;
+        }
+
+        #team>div>div:last-child {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        #team>div>div>div {
+          padding: 25px 20px !important;
+          border-radius: 14px;
+        }
+
+        #team h3 {
+          font-size: 1.25rem;
+        }
+
+        #team img {
+          width: 120px !important;
+          height: 120px !important;
+        }
+
+        #team>div>div>div>div:last-child {
+          flex-direction: column;
+        }
+
+        #team>div>div>div>div:last-child>a {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #team .container {
+          padding: 0 12px;
+        }
+
+        #team .section-header h2 {
+          font-size: 1.5rem;
+        }
+
+        #team>div>div:last-child {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        #team>div>div>div {
+          padding: 20px 16px !important;
+          border-radius: 12px;
+        }
+
+        #team h3 {
+          font-size: 1.1rem;
+        }
+
+        #team h4 {
+          font-size: 0.8rem;
+        }
+
+        #team img {
+          width: 110px !important;
+          height: 110px !important;
+          border-width: 3px !important;
+        }
+
+        #team p {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Keyboard Navigation Support */
+      #team a[role="button"]:focus {
+        outline: 3px solid #19a66c;
+        outline-offset: 2px;
+      }
+
+      /* Reduce Motion Support */
+      @media (prefers-reduced-motion: reduce) {
+        #team a[role="button"] {
+          transition: none;
+        }
+
+        #team .section-header {
+          animation: none;
+        }
+      }
+
+      /* Dark Mode Support */
+      @media (prefers-color-scheme: dark) {
+        #team {
+          background: linear-gradient(135deg, #1a2e1e 0%, #1e1a2e 100%);
+        }
+
+        #team>div>div>div {
+
+          color: #e5e5e5;
+        }
+
+        #team h3,
+        #team h4 {
+          color: #4ade80;
+        }
+
+        #team p {
+          color: #d1d5db;
+        }
+
+        #team img {
+          border-color: #1a3a1a;
+        }
+      }
+    </style>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 data-lang="final-cta-title">Ready to Transform Your Real Estate Business?</h2>
+      <p data-lang="final-cta-desc">Join modern real estate professionals who are saving time and closing more deals
+        with RealBroks.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="#" onclick="alert('Coming Soon'); return false;" style="display: inline-block; text-decoration: none;">
+          <img src="static/images/appstore-placeholder.svg" alt="Download on App Store"
+            style="height: 48px; cursor: pointer;">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.tecstellar.RealBroks&pcampaignid=web_share"
+          target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">
+          <img src="static/images/playstore-placeholder.svg" alt="Get it on Google Play"
+            style="height: 48px; cursor: pointer;">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Assistant Chat Widget -->
+  <div class="rb-chat" aria-live="polite">
+    <button class="rb-chat__toggle" type="button" aria-expanded="false" aria-controls="rb-chat-panel">
+      <span class="rb-chat__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 11.5l9-7 9 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M5 10.5V20h14v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M9 20v-6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </span>
+      <span class="rb-chat__text">Assistant</span>
+      <span class="rb-chat__status" aria-label="Online"></span>
+    </button>
+    <div id="rb-chat-panel" class="rb-chat__panel" role="dialog" aria-label="Assistant chat" aria-hidden="true">
+      <div class="rb-chat__header">
+        <div>
+          <strong>Realbrok Assistant</strong>
+          <span>Typically replies instantly</span>
+        </div>
+        <button class="rb-chat__close" type="button" aria-label="Close chat">✕</button>
+      </div>
+      <div class="rb-chat__body">
+        <div class="rb-chat__bubble">Hi 👋 How may I help you?</div>
+      </div>
+      <div class="rb-chat__footer">
+        <input type="text" placeholder="Type your message..." aria-label="Type your message">
+        <button type="button">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+  <script>
+    // Hero text rotator
+    const heroHeading = document.getElementById('heroHeading');
+    const heroDescription = document.getElementById('heroDescription');
+
+    // Initialize with English (will be updated by language system)
+    window.heroHeadings = [
+      'Manage All Your Real Estate Properties in One Place',
+      'Built for Brokers'
+    ];
+    window.heroDescriptions = [
+      'Manage listings, buyers, and commissions in one simple app. Save time, close faster, and grow your real estate business.',
+      'All your properties, contacts, and deals in one place. Manage your entire real estate business with ease and grow faster.'
+    ];
+
+    if (heroHeading && heroDescription) {
+      let heroIndex = 0;
+      const swapHeroText = () => {
+        heroHeading.style.opacity = 0;
+        heroDescription.style.opacity = 0;
+        setTimeout(() => {
+          heroIndex = (heroIndex + 1) % window.heroHeadings.length;
+          heroHeading.textContent = window.heroHeadings[heroIndex];
+          heroDescription.textContent = window.heroDescriptions[heroIndex];
+          // Update data-lang attribute for proper language detection
+          heroHeading.setAttribute('data-lang', heroIndex === 0 ? 'hero-heading-1' : 'hero-heading-2');
+          heroDescription.setAttribute('data-lang', heroIndex === 0 ? 'hero-desc-1' : 'hero-desc-2');
+          heroHeading.style.opacity = 1;
+          heroDescription.style.opacity = 1;
+        }, 400);
+      };
+      setInterval(swapHeroText, 4000);
+    }
+
+    const phoneImage = document.getElementById('phoneImage');
+    const navbar = document.querySelector('.navbar');
+    const navbarLogo = navbar ? navbar.querySelector('img') : null;
+    const logoWhite = 'static/images/RB-White-Logo.png';
+    const logoColor = 'static/images/logo.png';
+
+    const updateNavbarState = () => {
+      if (!navbar || !navbarLogo) return;
+      const scrolled = window.scrollY > 10;
+      navbar.classList.toggle('scrolled', scrolled);
+      const nextLogo = scrolled ? logoColor : logoWhite;
+      if (navbarLogo.getAttribute('src') !== nextLogo) {
+        navbarLogo.setAttribute('src', nextLogo);
+      }
+    };
+
+    function handleScroll() {
+      const ctaSection = document.getElementById('menu');
+      if (ctaSection) {
+        const ctaRect = ctaSection.getBoundingClientRect();
+        const ctaVisible = ctaRect.top < window.innerHeight * 0.85 && ctaRect.bottom > 0;
+        if (ctaVisible) {
+          ctaSection.querySelectorAll('.cta-reveal').forEach((el) => {
+            el.classList.add('is-visible');
+          });
+          const ctaPhone = ctaSection.querySelector('.cta-phone');
+          if (ctaPhone) {
+            ctaPhone.classList.add('is-visible');
+          }
+        }
+      }
+
+      if (phoneImage) {
+        const rect = phoneImage.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isInView && !phoneImage.classList.contains('phone-animate')) {
+          phoneImage.classList.add('phone-animate');
+        }
+      }
+
+      updateNavbarState();
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    updateNavbarState();
+  </script>
+
+  <script>
+    const chatToggle = document.querySelector('.rb-chat__toggle');
+    const chatPanel = document.getElementById('rb-chat-panel');
+    const chatClose = document.querySelector('.rb-chat__close');
+    const chatInput = document.querySelector('.rb-chat__footer input');
+    const chatSend = document.querySelector('.rb-chat__footer button');
+    const chatBody = document.querySelector('.rb-chat__body');
+
+    const CHAT_DISMISSED_KEY = 'rb-chat-dismissed';
+
+    if (chatToggle && chatPanel) {
+      const toggleChat = (open) => {
+        const isOpen = open ?? chatPanel.classList.contains('is-open');
+        chatPanel.classList.toggle('is-open', !isOpen);
+        chatPanel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+        chatToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      };
+
+      chatToggle.addEventListener('click', () => toggleChat());
+      if (chatClose) {
+        chatClose.addEventListener('click', () => {
+          try { localStorage.setItem(CHAT_DISMISSED_KEY, '1'); } catch (e) { }
+          toggleChat(true);
+        });
+      }
+
+      const chatWrap = document.querySelector('.rb-chat');
+      const userDismissedChat = () => {
+        try { return localStorage.getItem(CHAT_DISMISSED_KEY) === '1'; } catch (e) { return false; }
+      };
+
+      if (chatWrap && !userDismissedChat()) {
+        const runPeek = () => {
+          if (userDismissedChat()) return;
+          if (chatPanel.classList.contains('is-open')) return;
+          chatWrap.classList.add('rb-chat--peek');
+          setTimeout(() => chatWrap.classList.remove('rb-chat--peek'), 1600);
+        };
+        const runShrink = () => {
+          if (userDismissedChat()) return;
+          if (chatPanel.classList.contains('is-open')) return;
+          chatWrap.classList.add('rb-chat--shrink');
+          setTimeout(() => chatWrap.classList.remove('rb-chat--shrink'), 260);
+        };
+        const runAutoOpen = () => {
+          if (userDismissedChat()) return;
+          if (chatPanel.classList.contains('is-open')) return;
+          runShrink();
+          toggleChat(false);
+          setTimeout(() => toggleChat(true), 2000);
+        };
+        runPeek();
+        setInterval(runPeek, 5000);
+        setInterval(runAutoOpen, 7000);
+      }
+    }
+
+    if (chatInput && chatSend && chatBody) {
+      const whatsappNumber = '918870500106';
+      const sendMessage = () => {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        const bubble = document.createElement('div');
+        bubble.className = 'rb-chat__bubble rb-chat__bubble--user';
+        bubble.textContent = text;
+        chatBody.appendChild(bubble);
+        chatInput.value = '';
+        chatBody.scrollTop = chatBody.scrollHeight;
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+      };
+
+      chatSend.addEventListener('click', sendMessage);
+      chatInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          sendMessage();
+        }
+      });
+    }
+  </script>
+
+  <!-- Flip Cards Animation & Interaction -->
+  <script>
+    // ========== Orbiting Logos Controls ==========
+    const orbitRings = document.querySelectorAll('.orbit-ring');
+
+    // Pause animation on hover
+    orbitRings.forEach((ring) => {
+      ring.addEventListener('mouseenter', () => {
+        ring.style.animationPlayState = 'paused';
+      });
+
+      ring.addEventListener('mouseleave', () => {
+        ring.style.animationPlayState = 'running';
+      });
+    });
+
+    // Keyboard navigation - pause on focus
+    const logoLinks = document.querySelectorAll('.logo-link');
+    logoLinks.forEach((link) => {
+      link.addEventListener('focus', () => {
+        orbitRings.forEach((ring) => {
+          ring.style.animationPlayState = 'paused';
+        });
+      });
+
+      link.addEventListener('blur', () => {
+        orbitRings.forEach((ring) => {
+          ring.style.animationPlayState = 'running';
+        });
+      });
+
+      // Ensure keyboard accessibility
+      link.setAttribute('role', 'link');
+      link.setAttribute('tabindex', '0');
+    });
+
+    // Accessibility: Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      orbitRings.forEach((ring) => {
+        ring.style.animation = 'none';
+      });
+    }
+  </script>
+
+  <!-- Premium Footer -->
+  <footer class="realbroks-footer">
+    <div class="footer-content">
+      <!-- Brand Column -->
+      <div class="footer-column brand-column">
+        <img src="static/images/RB-White-Logo.png" alt="RealBroks Logo" class="footer-logo">
+      </div>
+
+      <!-- Contact Information Column -->
+      <div class="footer-column contact-column">
+        <h4 class="footer-section-label" data-lang="footer-contact">CONTACT INFORMATION:</h4>
+        <div class="contact-detail">
+          <a href="tel:+918870500106" class="contact-link">+91 95660 04966</a>
+        </div>
+        <div class="contact-detail">
+          <a href="mailto:aspirentech@gmail.com" class="contact-link">aspirentech@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Social Icons Column -->
+      <div class="footer-column social-column">
+        <div class="social-icons">
+          <a href="https://www.instagram.com/aspiren_tech/" target="_blank" rel="noopener noreferrer"
+            class="social-icon social-icon--instagram" aria-label="Follow RealBroks on Instagram">
+            <img src="static/images/instagram.png" alt="Instagram">
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook"
+            aria-label="Follow RealBroks on Facebook">
+            <img src="static/images/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.linkedin.com/company/aspirentech/posts/?feedView=all" target="_blank"
+            rel="noopener noreferrer" class="social-icon social-icon--linkedin"
+            aria-label="Follow RealBroks on LinkedIn">
+            <img src="static/images/linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo Call Column -->
+      <div class="footer-column demo-column">
+        <h4 class="footer-section-label" data-lang="footer-demo">REQUEST A FREE DEMO:</h4>
+        <p class="footer-demo-text" data-lang="footer-demo-text">Experience RealBroks in action today.</p>
+        <a href="tel:+918870500106" class="btn btn-primary demo-call-btn" data-lang="demo-button">
+          Call
+        </a>
+      </div>
+
+    </div>
+
+
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Realbroks <a href="https://www.aspirentech.com/" target="_blank"
+          rel="noopener noreferrer" class="tecstellar-link" data-lang="powered-by">Powered by Aspirentech Business
+          Solution</a>. <span data-lang="rights">All rights reserved.</span></p>
+      <div class="footer-links">
+        <a href="/privacy/" class="footer-link" data-lang="privacy">Privacy Policy</a>
+        <span class="footer-link-separator">•</span>
+        <a href="/terms-conditions/" class="footer-link" data-lang="terms">Terms and Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Language Switcher Script -->
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        'nav-home': 'Home',
+        'nav-about': 'About Us',
+        'nav-services': 'Service',
+        'nav-team': 'Team',
+        'admin-login': 'Admin Login',
+        'hero-heading-1': 'Manage All Your Real Estate Properties in One Place',
+        'hero-heading-2': 'Built for Brokers',
+        'hero-desc-1': 'Manage listings, buyers, and commissions in one simple app. Save time, close faster, and grow your real estate business.',
+        'hero-desc-2': 'All your properties, contacts, and deals in one place. Manage your entire real estate business with ease and grow faster.',
+        'about-title': 'What is RealBroks?',
+        'about-desc': 'RealBroks is a comprehensive real estate management platform built for brokers, agents, and small real estate businesses in India. Our goal is simple: reduce manual work, improve transparency, and help you close deals faster using powerful yet easy-to-use SaaS tools.',
+        'lang-title': 'RealBroks App Supports Languages',
+        'lang-desc': 'Close deals faster with clearer communication. Manage clients, negotiations, and walkthroughs in the language they trust.',
+        'cta-start': 'Start Now,',
+        'cta-free': "It's Absolutely Free",
+        'cta-desc': 'Manage properties, clients, and follow-ups from your phone. Stay organized, Add multiple properties, and close deals faster.',
+        'download-app': 'Download App:',
+        'features-label': 'Features',
+        'features-title': 'Everything You Need to Manage Your Real Estate Business',
+        'features-desc': 'Powerful tools designed specifically for real estate brokers and agents',
+        'feature1-title': 'Smart Property Listings',
+        'feature1-point1': 'Add, edit, and share property details instantly',
+        'feature1-point2': 'Auto-calculate cent to sqft conversions',
+        'feature1-point3': 'Tag GPS location and upload photos on the go',
+        'feature2-title': 'Secure Transactions',
+        'feature2-point1': 'Mark properties as Sold / Archived / Deleted',
+        'feature2-point2': 'Track commissions (Pending vs. Received)',
+        'feature2-point3': 'Keep all your deals transparent & organized',
+        'feature3-title': 'Built for Brokers, Not Corporates',
+        'feature3-point1': 'Easy to use on mobile',
+        'feature3-point2': 'No clutter, no steep learning curve',
+        'feature3-point3': 'Works even for single agents and small teams',
+        'feature4-title': 'Client & Buyer Management',
+        'feature4-point1': 'Store and manage buyer preferences and budgets',
+        'feature4-point2': 'Track follow-ups and interaction history',
+        'feature4-point3': 'Build your client database automatically',
+        'how-label': 'How It Works',
+        'how-title': 'Simple Process, Maximum Results',
+        'how-step1-title': '1. Add Your Properties',
+        'how-step1-desc': 'Upload details, photos, and location in seconds. Our intuitive interface makes property management effortless.',
+        'how-step2-title': '2. Manage Buyers & Contacts',
+        'how-step2-desc': 'Store buyer preferences, budgets, and call history. Keep all your client information organized in one place.',
+        'how-step3-title': '3. Track Sales & Commissions',
+        'how-step3-desc': 'Stay on top of every rupee earned. Monitor your deals from start to finish with complete transparency.',
+        'how-step4-title': '4. Smart Auto-Match & Filters',
+        'how-step4-desc': 'Automatically filter and match properties with buyer preferences.',
+        'partners-label': 'TRUSTED TECHNOLOGY',
+        'partners-title': 'Powerful Integrations & Partners',
+        'partners-desc': 'Powerful integrations that make listings faster to publish, easier to share, and simple to transact',
+        'team-title': 'Team',
+        'team-name': 'Sundar',
+        'team-title-text': 'Founder, Aspirentech Business Solution',
+        'team-value': 'Transforming Real Estate Through Intelligent SaaS Solutions',
+        'team-bio': 'Sundar, the visionary founder of Aspirentech Business Solution, is dedicated to investing in SaaS for a brighter future. He strives to transform real estate and other traditional industries by harnessing intelligent, user-friendly software solutions.',
+        'team-vision-label': 'Leadership Vision',
+        'mission-title': 'Our Mission',
+        'mission-text': 'To empower brokers, small businesses, and teams with simple yet powerful SaaS tools that reduce manual effort and improve transparency.',
+        'vision-title': 'Our Vision',
+        'final-cta-title': 'Ready to Transform Your Real Estate Business?',
+        'final-cta-desc': 'Join modern real estate professionals who are saving time and closing more deals with RealBroks.',
+        'footer-contact': 'CONTACT US',
+        'footer-office': 'OUR OFFICE',
+        'footer-demo': 'GET STARTED',
+        'footer-tagline': 'Empowering real estate professionals with intelligent tools to manage properties and grow their business.',
+        'footer-quick-links': 'QUICK LINKS',
+        'footer-demo-text': 'Experience RealBroks in action today.',
+        'demo-button': 'Request Free Demo',
+
+        'powered-by': 'Powered by Aspirentech Business Solution',
+        'rights': 'All rights reserved.',
+        'privacy': 'Privacy Policy',
+        'terms': 'Terms and Conditions'
+      },
+      ta: {
+        'nav-home': 'முகப்பு',
+        'nav-about': 'எங்களை பற்றி',
+        'nav-services': 'சேவை',
+        'nav-team': 'குழு',
+        'admin-login': 'நிர்வாக உள்நுழைவு',
+        'hero-heading-1': 'உங்கள் அனைத்து ரியல் எஸ்டேட் சொத்துக்களையும் ஒரே இடத்தில் நிர்வகிக்கவும்',
+        'hero-heading-2': 'தரகர்களுக்காக உருவாக்கப்பட்டது',
+        'hero-desc-1': 'பட்டியல்கள், வாங்குபவர்கள் மற்றும் கமிஷன்களை ஒரே எளிய பயன்பாட்டில் நிர்வகிக்கவும். நேரத்தை மிச்சப்படுத்துங்கள், வேகமாக மூடுங்கள், உங்கள் ரியல் எஸ்டேட் வணிகத்தை வளர்க்கவும்.',
+        'hero-desc-2': 'உங்கள் அனைத்து சொத்துக்கள், தொடர்புகள் மற்றும் ஒப்பந்தங்கள் ஒரே இடத்தில். உங்கள் முழு ரியல் எஸ்டேட் வணிகத்தையும் எளிதாக நிர்வகித்து வேகமாக வளருங்கள்.',
+        'about-title': 'RealBroks என்றால் என்ன?',
+        'about-desc': 'RealBroks என்பது இந்தியாவில் உள்ள தரகர்கள், முகவர்கள் மற்றும் சிறிய ரியல் எஸ்டேட் வணிகங்களுக்காக உருவாக்கப்பட்ட ஒரு விரிவான ரியல் எஸ்டேட் மேலாண்மை தளம். எங்கள் குறிக்கோள் எளிமையானது: கைமுறை வேலையை குறைக்க, வெளிப்படைத்தன்மையை மேம்படுத்த மற்றும் சக்திவாய்ந்த ஆனால் பயன்படுத்த எளிதான SaaS கருவிகளைப் பயன்படுத்தி ஒப்பந்தங்களை வேகமாக மூட உதவுதல்.',
+        'lang-title': 'RealBroks பயன்பாடு மொழிகளை ஆதரிக்கிறது',
+        'lang-desc': 'தெளிவான தொடர்பு மூலம் ஒப்பந்தங்களை வேகமாக மூடுங்கள். வாடிக்கையாளர்கள், பேச்சுவார்த்தைகள் மற்றும் வாக்த்ரூக்களை அவர்கள் நம்பும் மொழியில் நிர்வகிக்கவும்.',
+        'cta-start': 'இப்போதே தொடங்குங்கள்,',
+        'cta-free': 'இது முற்றிலும் இலவசம்',
+        'cta-desc': 'உங்கள் தொலைபேசியில் இருந்து சொத்துக்கள், வாடிக்கையாளர்கள் மற்றும் பின்தொடர்தல்களை நிர்வகிக்கவும். ஒழுங்கமைக்கப்பட்டிருங்கள், பல சொத்துக்களைச் சேர்க்கவும், ஒப்பந்தங்களை வேகமாக மூடுங்கள்.',
+        'download-app': 'பயன்பாட்டைப் பதிவிறக்கவும்:',
+        'features-label': 'அம்சங்கள்',
+        'features-title': 'உங்கள் ரியல் எஸ்டேட் வணிகத்தை நிர்வகிக்க தேவையான அனைத்தும்',
+        'features-desc': 'ரியல் எஸ்டேட் தரகர்கள் மற்றும் முகவர்களுக்காக குறிப்பாக வடிவமைக்கப்பட்ட சக்திவாய்ந்த கருவிகள்',
+        'feature1-title': 'ஸ்மார்ட் சொத்து பட்டியல்கள்',
+        'feature1-point1': 'சொத்து விவரங்களை உடனடியாக சேர்க்கவும், திருத்தவும், பகிரவும்',
+        'feature1-point2': 'சென்ட் முதல் சதுர அடி மாற்றங்களை தானாக கணக்கிடுங்கள்',
+        'feature1-point3': 'GPS இருப்பிடத்தை குறியிடவும் மற்றும் புகைப்படங்களை பதிவேற்றவும்',
+        'feature2-title': 'பாதுகாப்பான பரிவர்த்தனைகள்',
+        'feature2-point1': 'சொத்துக்களை விற்கப்பட்டது / காப்பகப்படுத்தப்பட்டது / நீக்கப்பட்டது எனக் குறிக்கவும்',
+        'feature2-point2': 'கமிஷன்களை கண்காணிக்கவும் (நிலுவையில் உள்ளது Vs. பெறப்பட்டது)',
+        'feature2-point3': 'உங்கள் அனைத்து ஒப்பந்தங்களையும் வெளிப்படையாகவும் ஒழுங்கமைக்கப்பட்டதாகவும் வைத்திருங்கள்',
+        'feature3-title': 'தரகர்களுக்காக உருவாக்கப்பட்டது, கார்ப்பரேட்டுகளுக்காக அல்ல',
+        'feature3-point1': 'மொபைலில் பயன்படுத்த எளிது',
+        'feature3-point2': 'குழப்பம் இல்லை, செங்குத்தான கற்றல் வளைவு இல்லை',
+        'feature3-point3': 'ஒற்றை முகவர்கள் மற்றும் சிறிய குழுக்களுக்கும் வேலை செய்கிறது',
+        'feature4-title': 'வாடிக்கையாளர் மற்றும் வாங்குபவர் மேலாண்மை',
+        'feature4-point1': 'வாங்குபவர் விருப்பங்கள் மற்றும் பட்ஜெட்களை சேமித்து நிர்வகிக்கவும்',
+        'feature4-point2': 'பின்தொடர்தல்கள் மற்றும் தொடர்பு வரலாற்றை கண்காணிக்கவும்',
+        'feature4-point3': 'உங்கள் வாடிக்கையாளர் தரவுத்தளத்தை தானாகவே உருவாக்குங்கள்',
+        'how-label': 'இது எவ்வாறு செயல்படுகிறது',
+        'how-title': 'எளிய செயல்முறை, அதிகபட்ச முடிவுகள்',
+        'how-step1-title': '1. உங்கள் சொத்துக்களைச் சேர்க்கவும்',
+        'how-step1-desc': 'விவரங்கள், புகைப்படங்கள் 및 இருப்பிடத்தை வினாடிகளில் பதிவேற்றவும். எங்கள் உள்ளுணர்வு இடைமுகம் சொத்து மேலாண்மையை எளிதாக்குகிறது.',
+        'how-step2-title': '2. வாங்குபவர்கள் மற்றும் தொடர்புகளை நிர்வகிக்கவும்',
+        'how-step2-desc': 'வாங்குபவர் விருப்பங்கள், பட்ஜெட்டுகள் மற்றும் அழைப்பு வரலாற்றை சேமிக்கவும். உங்கள் அனைத்து வாடிக்கையாளர் தகவல்களையும் ஒரே இடத்தில் ஒழுங்கமைக்கவும்.',
+        'how-step3-title': '3. விற்பனை மற்றும் கமிஷன்களை கண்காணிக்கவும்',
+        'how-step3-desc': 'ஒவ்வொரு ரூபாயின் மேலும் இருங்கள். முழு வெளிப்படைத்தன்மையுடன் உங்கள் ஒப்பந்தங்களை ஆரம்பம் முதல் இறுதி வரை கண்காணிக்கவும்.',
+        'how-step4-title': '4. ஸ்மார்ட் ஆட்டோ-மேட்ச் மற்றும் வடிகட்டிகள்',
+        'how-step4-desc': 'வாங்குபவர் விருப்பங்களுடன் சொத்துக்களை தானாகவே வடிகட்டுங்கள் மற்றும் பொருத்துங்கள்.',
+        'partners-label': 'நம்பகமான தொழில்நுட்பம்',
+        'partners-title': 'சக்திவாய்ந்த ஒருங்கிணைப்புகள் மற்றும் கூட்டாளர்கள்',
+        'partners-desc': 'பட்டியல்களை வேகமாக வெளியிட, எளிதாக பகிர மற்றும் எளிமையாக பரிவர்த்தனை செய்ய உதவும் சக்திவாய்ந்த ஒருங்கிணைப்புகள்',
+        'team-title': 'குழு',
+        'team-name': 'சுந்தர்',
+        'team-title-text': 'நிறுவனர், Aspirentech Business Solution',
+        'team-value': 'அறிவார்ந்த SaaS தீர்வுகள் மூலம் ரியல் எஸ்டேட்டை மாற்றுதல்',
+        'team-bio': 'Aspirentech Business Solution-ன் தொலைநோக்கு நிறுவனர் சுந்தர், பிரகாசமான எதிர்காலத்திற்காக SaaS இல் முதலீடு செய்வதில் அர்ப்பணிப்புடன் உள்ளார். அறிவார்ந்த, பயனர் நட்பு மென்பொருள் தீர்வுகளைப் பயன்படுத்தி ரியல் எஸ்டேட் மற்றும் பிற பாரம்பரிய தொழில்களை மாற்ற அவர் பாடுபடுகிறார்.',
+        'team-vision-label': 'தலைமைத்துவ பார்வை',
+        'mission-title': 'எங்கள் பணி',
+        'mission-text': 'கைமுறை முயற்சியை குறைக்கும் மற்றும் வெளிப்படைத்தன்மையை மேம்படுத்தும் எளிமையான ஆனால் சக்திவாய்ந்த SaaS கருவிகளுடன் தரகர்கள், சிறு வணிகங்கள் மற்றும் குழுக்களுக்கு அதிகாரம் அளிப்பது.',
+        'vision-title': 'எங்கள் பார்வை',
+        'final-cta-title': 'உங்கள் ரியல் எஸ்டேட் வணிகத்தை மாற்ற தயாரா?',
+        'final-cta-desc': 'RealBroks உடன் நேரத்தை மிச்சப்படுத்தி அதிக ஒப்பந்தங்களை மூடும் நவீன ரியல் எஸ்டேட் நிபுணர்களுடன் சேரவும்.',
+        'footer-contact': 'எங்களைத் தொடர்பு கொள்ளுங்கள்',
+        'footer-office': 'எங்கள் அலுவலகம்',
+        'footer-demo': 'தொடங்குங்கள்',
+        'footer-tagline': 'ரியல் எஸ்டேட் வல்லுநர்களுக்கு சொத்துக்களை நிர்வகிக்கவும் வணிகத்தை வளர்க்கவும் அறிவார்ந்த கருவிகள் மூலம் அதிகாரம் அளித்தல்.',
+        'footer-quick-links': 'விரைவு இணைப்புகள்',
+        'footer-demo-text': 'RealBroks-ஐ இன்று செயல்பாட்டில் அனுபவியுங்கள்.',
+        'demo-button': 'இலவச டெமோவைக் கோருங்கள்',
+
+        'powered-by': 'Aspirentech Business Solution-ஆல் இயக்கப்படுகிறது',
+        'rights': 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
+        'privacy': 'தனியுரிமைக் கொள்கை',
+        'terms': 'விதிமுறைகள் மற்றும் நிபந்தனைகள்'
+      }
+    };
+
+    // Language switcher functionality
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+
+      // Update all elements with data-lang attribute
+      document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update language toggle button
+      const currentLangSpan = document.getElementById('currentLang');
+      const nextLangSpan = document.getElementById('nextLang');
+      if (currentLangSpan && nextLangSpan) {
+        if (lang === 'en') {
+          currentLangSpan.textContent = 'EN';
+          nextLangSpan.textContent = 'த';
+        } else {
+          currentLangSpan.textContent = 'த';
+          nextLangSpan.textContent = 'EN';
+        }
+      }
+
+      // Update hero rotator with current language
+      updateHeroRotator(lang);
+    }
+
+    function updateHeroRotator(lang) {
+      const heroHeadings = [
+        translations[lang]['hero-heading-1'],
+        translations[lang]['hero-heading-2']
+      ];
+      const heroDescriptions = [
+        translations[lang]['hero-desc-1'],
+        translations[lang]['hero-desc-2']
+      ];
+
+      // Update the global arrays used by the rotator
+      window.heroHeadings = heroHeadings;
+      window.heroDescriptions = heroDescriptions;
+    }
+
+    // Language toggle button event
+    document.addEventListener('DOMContentLoaded', function () {
+      const langToggle = document.getElementById('langToggle');
+      if (langToggle) {
+        langToggle.addEventListener('click', function () {
+          const newLang = currentLang === 'en' ? 'ta' : 'en';
+          updateLanguage(newLang);
+        });
+      }
+
+      // Apply saved language on page load
+      updateLanguage(currentLang);
+    });
+  </script>
+  <!-- testing -->
+</body>
+
+</html>
