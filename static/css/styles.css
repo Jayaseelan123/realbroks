@@ -1,3 +1,27 @@
+/* === Footer Styles === */
+/* Modern premium gradient footer background */
+.absbroks-footer {
+  background: rgb(3, 3, 16);
+  color: var(--text-primary);
+  padding: 3rem 0 1.5rem 0;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.absbroks-footer .footer-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.absbroks-footer .footer-bottom {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-top: 2rem;
+}
 /* =============================================
    RealBroks Modern SaaS Design System
    Inspired by BuildFormula layout & spacing
@@ -31,12 +55,20 @@
 
 :root {
   /* Brand Colors */
-  --brand-primary: #19a66c;
-  --brand-primary-hover: #158a5a;
-  --brand-gradient: linear-gradient(135deg, #0d4a35 0%, #127a52 50%, #19a66c 100%);
-  --brand-gradient-dark: linear-gradient(135deg, #0b3b2a 0%, #0f5c42 50%, #158654 100%);
-  --brand-on-gradient: #e8f5f0;
+  --brand-primary: #1C8ED6;
+  --brand-primary-hover: #148FB7;
 
+  --brand-gradient: linear-gradient(135deg,
+      #1C8ED6 0%,
+      #18A88B 50%,
+      #29C08A 100%);
+
+  --brand-gradient-dark: linear-gradient(135deg,
+      #0F5F8F 0%,
+      #127C74 50%,
+      #1C9A72 100%);
+
+  --brand-on-gradient: #F4FCFA;
   /* Neutral Palette */
   --color-white: #ffffff;
   --color-gray-50: #f9fafb;
@@ -191,6 +223,8 @@ p {
 }
 
 /* === Navigation === */
+
+/* Modern premium gradient header background */
 .navbar {
   position: fixed;
   top: 0;
@@ -198,11 +232,15 @@ p {
   right: 0;
   width: 100%;
   z-index: 100;
-  background: var(--brand-gradient);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #e8f5f0 0%, #f0fdf8 100%) !important;
+  border-bottom: 1px solid var(--color-gray-200);
   backdrop-filter: blur(10px);
-  color: var(--color-white);
+  color: var(--text-primary) !important;
   transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar, .navbar a, .navbar .navbar-brand, .navbar .navbar-nav li a, .navbar .lang-toggle-btn, .navbar .btn-primary {
+  color: var(--text-primary) !important;
 }
 
 .navbar.scrolled {
@@ -416,7 +454,7 @@ p {
 }
 
 .btn-primary {
-  background: var(--brand-primary);
+  background: var(--brand-gradient);
   color: var(--color-white);
 }
 
@@ -429,13 +467,13 @@ p {
 }
 
 .btn-primary:hover {
-  background: var(--brand-primary-hover);
+  background: var(--brand-gradient);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-  background: var(--color-white);
+  background: var(--brand-gradient);
   color: var(--text-primary);
   border: 2px solid var(--border-color);
 }
@@ -1096,7 +1134,7 @@ p {
 }
 
 .cta-section .btn-primary {
-  background: var(--brand-primary);
+  background: var(--brand-gradient);
 }
 
 /* CTA Corner Support Actions */
@@ -1450,7 +1488,7 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 14px 16px;
-  background: linear-gradient(135deg, #0f766e 0%, #22c55e 100%);
+  background: white;
   color: #ffffff;
 }
 
@@ -2758,7 +2796,7 @@ p {
   padding: 0.8rem 1.5rem !important;
   font-size: 0.9rem !important;
   border-radius: 10px !important;
-  background: var(--brand-primary) !important;
+  background: var(--brand-gradient) !important;
   box-shadow: 0 4px 15px rgba(25, 166, 108, 0.2);
 }
 
@@ -3065,11 +3103,15 @@ p {
     gap: 10px !important;
   }
 }
- . n a v b a r : n o t ( . s c r o l l e d )   . n a v b a r - b r a n d   i m g   { 
-     f i l t e r :   b r i g h t n e s s ( 0 )   i n v e r t ( 1 ) ; 
- } 
- . f o o t e r - l o g o   { 
-     f i l t e r :   b r i g h t n e s s ( 0 )   i n v e r t ( 1 ) ; 
- } 
-  
- 
+
+ . n a v b a r : n o t ( . s c r o l l e d )   . n a v b a r - b r a n d   i m g    {
+         f i l t e r :    b r i g h t n e s s ( 0 )   i n v e r t ( 1 ) ;
+     
+}
+
+   . f o o t e r - l o g o    {
+         f i l t e r :    b r i g h t n e s s ( 0 )   i n v e r t ( 1 ) ;
+     
+}
+
+       
